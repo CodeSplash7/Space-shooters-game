@@ -7,12 +7,14 @@ vec = pg.math.Vector2
 class Player2(Player):
     def __init__(self, WINSIZE):
         super().__init__()
-        self.image.fill('yellow')
+        self.color = "yellow"
+        self.image.fill(self.color)
         self.pos = vec(WINSIZE[0]/2 + WINSIZE[0]/4, WINSIZE[1]/2)
         
-    def update(self):
+    def update(self, ALL_BULLETS):
         self.move()
         self.dontGetOffScreen()
+        self.checkIfHit(ALL_BULLETS)
         
     def move(self):
         self.acc = vec(0,0)
