@@ -9,10 +9,11 @@ class Player(pg.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.acc = vec()
         self.vel = vec()
+        self.lives = 3
         
     def checkIfHit(self, ALL_BULLETS):
         hits = pg.sprite.spritecollide(self, ALL_BULLETS, False)
         for hit in hits:
             if self.color != hit.color:
-                print('shot')
+                self.lives -= 1
                 hit.kill()

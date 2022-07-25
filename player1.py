@@ -15,6 +15,8 @@ class Player1(Player):
         self.move()
         self.dontGetOffScreen()
         self.checkIfHit(ALL_BULLETS)
+        if self.lives == 0:
+            self.kill()
         
     def move(self):
         self.acc = vec(0,0)
